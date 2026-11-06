@@ -29,6 +29,8 @@
 
 ---
 
+This is just a fork of thebestgoodguy's amazing work at https://github.com/thebestgoodguy/FlatCAM-Plus.git, but with AI tools purged because they are disgusting.
+
 ## Features
 
 | Feature | Description |
