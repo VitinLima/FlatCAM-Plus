@@ -1098,7 +1098,6 @@ class App(QtCore.QObject):
         self.levelling_tool = self.cnc_control_tool
         self.cnc_preview_3d_tool = ToolCNCPreview3D(self)
         self.cnc_height_map_3d_tool = ToolCNCHeightMap3D(self)
-        self.ai_assistant_tool = ToolAIAssistant(self)
 
         # this is calculated in the class above (somehow?)
         self.options["root_folder_path"] = self.app_home
@@ -1921,10 +1920,6 @@ class App(QtCore.QObject):
         self.cnc_height_map_3d_tool.install(icon=QtGui.QIcon(self.resource_location + '/3d_area32.png'),
                                             pos=self.ui.menu_plugins, separator=True)
 
-        self.ai_assistant_tool = ToolAIAssistant(self)
-        self.ai_assistant_tool.install(icon=QtGui.QIcon(self.resource_location + '/experiment32.png'),
-                                       pos=self.ui.menu_plugins, separator=True)
-
         self.copper_thieving_tool = ToolCopperThieving(self)
         self.copper_thieving_tool.install(icon=QtGui.QIcon(self.resource_location + '/copperfill32.png'),
                                           pos=self.ui.menu_plugins)
@@ -1977,7 +1972,6 @@ class App(QtCore.QObject):
             self.cnc_control_tool,
             self.cnc_preview_3d_tool,
             self.cnc_height_map_3d_tool,
-            self.ai_assistant_tool,
 
             self.image_tool,
             self.copper_thieving_tool,
@@ -2257,10 +2251,6 @@ class App(QtCore.QObject):
             self.ui.cnc_toolbar_settings_btn.triggered.connect(self.cnc_control_tool.on_manage_machine_profiles)
         if hasattr(self.cnc_control_tool, "register_toolbar_connection_handler"):
             self.cnc_control_tool.register_toolbar_connection_handler()
-        if hasattr(self.ui, "ai_chat_btn"):
-            self.ui.ai_chat_btn.triggered.connect(lambda: self.ai_assistant_tool.run(toggle=True))
-        if hasattr(self.ui, "ai_settings_btn"):
-            self.ui.ai_settings_btn.triggered.connect(self.ai_assistant_tool.open_settings_dialog)
 
 
 
@@ -2477,7 +2467,6 @@ class App(QtCore.QObject):
         # add all the actions to the toolbars
         self.ui.populate_toolbars()
         self.ui.add_cnc_toolbar_controls()
-        self.ui.add_ai_toolbar_controls()
         self.ui.add_options_toolbar_controls()
         self.ui.apply_all_toolbar_icon_theme()
 

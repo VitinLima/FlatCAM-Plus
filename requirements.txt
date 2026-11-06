@@ -28,7 +28,7 @@ shapely>=2.0
 
 # ###############################
 # OR-TOOLS package is now optional
-ortools>=7.0
+#ortools>=7.0
 # ###############################
 
 lxml
@@ -56,5 +56,5 @@ svgtrace
 # To detect OS dark mode
 darkdetect
 
-gdal
+gdal==3.8.4
 rasterio

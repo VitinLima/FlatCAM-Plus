@@ -28,7 +28,6 @@ from appPlugins.ToolPlotter import ToolPlotter
 from appPlugins.ToolCNCControl import ToolCNCControl
 from appPlugins.ToolCNCPreview3D import ToolCNCPreview3D
 from appPlugins.ToolCNCHeightMap3D import ToolCNCHeightMap3D
-from appPlugins.ToolAIAssistant import ToolAIAssistant
 
 
 

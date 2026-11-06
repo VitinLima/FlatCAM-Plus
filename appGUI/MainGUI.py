@@ -1456,20 +1456,6 @@ class MainGUI(QtWidgets.QMainWindow):
         self.cnc_toolbar_connection_handler = None
         self.update_cnc_toolbar_status(False, "")
 
-    def add_ai_toolbar_controls(self):
-        current_action = getattr(self, "ai_dropdown_action", None)
-        if current_action is not None and current_action in self.toolbarplugins.actions():
-            return
-
-        self.ai_chat_btn = self.toolbar_action('/aichat32.png', _("Chat Panel"), _("Open AI chat panel."))
-        self.ai_settings_btn = self.toolbar_action('/settings18.png', _("AI Settings"), _("Open AI settings."))
-        self.ai_dropdown, self.ai_dropdown_action, self.ai_dropdown_menu = self.add_toolbar_dropdown(
-            self.toolbarplugins,
-            '/ai32.png',
-            _("AI Assistant"),
-            [self.ai_chat_btn, self.ai_settings_btn]
-        )
-
     def update_cnc_toolbar_status(self, connected, description="", state=None):
         if not hasattr(self, "cnc_toolbar_status_action") or self.cnc_toolbar_status_action is None:
             return
@@ -3719,7 +3705,6 @@ class MainGUI(QtWidgets.QMainWindow):
         self.pref_tab_area.tabBar().tabBarClicked.connect(self.on_pref_tabbar_clicked)
 
         self.add_cnc_toolbar_controls()
-        self.add_ai_toolbar_controls()
         self.add_options_toolbar_controls()
         self.show_start_workspace()
 
